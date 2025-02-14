@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  createdAt DateTime  @default(now())
+
+  streak    UserStreak?
+  opens     NewsletterOpen[]
+}
+
+model Newsletter {
+  id        Int       @id @default(autoincrement())
+  postId    String    @unique
+  sentAt    DateTime
+
+  opens     NewsletterOpen[]
+}
+
+model UserStreak {
+  id         Int       @id @default(autoincrement())
+  userId     Int       @unique
+  streak     Int       @default(0)
+  lastOpened DateTime  @default(now())
+
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model NewsletterOpen {
+  id           Int       @id @default(autoincrement())
+  userId       Int
+  newsletterId Int
+  openedAt     DateTime  @default(now())
+
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  newsletter   Newsletter @relation(fields: [newsletterId], references: [id], onDelete: Cascade)
+}
