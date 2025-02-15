@@ -4,6 +4,6 @@ import { authMiddleware } from "../middlewares/authMiddlewares";
 const router = express.Router();
 
 // 🔹 Rota para buscar o streak do usuário autenticado
-router.get("/", authMiddleware as any, getUserStreak as any);
+router.get("/streak", authMiddleware as any, getUserStreak as any);
 
 export default router;
