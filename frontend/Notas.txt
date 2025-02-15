@@ -1,0 +1,5 @@
+ao iniciar de "cd frontend + enter"
+digite no terminal "npm run dev"
+ao abrir irá para a tela de login do leitor
+fazendo o login irá para a tela do leitor 
+para acessar o painel admin ,adicione ao final do endereço "/admin" exemplo:localhost5000/admin
