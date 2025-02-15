@@ -287,13 +287,13 @@
       
       
       .content-1 .cadastro-1-relatory {
-        margin-top: -25%;
+        margin-top: -30% !important;
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 83%;
         max-height: 0;
-        min-height: 50rem;
+        min-height: 47rem !important;
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0px 0px 10px #000;
@@ -327,13 +327,13 @@
       
       
       .content-1 .cadastro-1-relatory {
-        margin-top: 2%;
+        margin-top: -2% !important;
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 83%;
         max-height: 0;
-        min-height: 33rem;
+        min-height: 33rem !important;
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0px 0px 10px #000;
@@ -372,13 +372,13 @@
     
     
     .content-1 .cadastro-1-relatory {
-      margin-top: 2% !important;
+      margin-top: 1% !important;
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 83%;
       max-height: 0;
-      min-height: 33rem !important;
+      min-height: 31rem !important;
       background-color: #fff;
       border-radius: 10px;
       box-shadow: 0px 0px 10px #000;

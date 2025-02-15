@@ -32,11 +32,11 @@ export function SidebarComponent() {
 
           <Sidebutton tittle="Visão Geral" onClick={() => navigate('/admin/visaogeral')} />
 
-          <Sidebutton tittle="Ranking" onClick={() => navigate('')} />
+          <Sidebutton tittle="Ranking" onClick={() => navigate('/admin/ranking')} />
 
-          <Sidebutton tittle="Estatísticas" onClick={() => navigate('')} />
+          <Sidebutton tittle="Estatísticas" onClick={() => navigate('/admin/estatistica')} />
 
-          <Sidebutton tittle="Engajamento" onClick={() => navigate('')} />
+          <Sidebutton tittle="Engajamento" onClick={() => navigate('/admin/engajamento')} />
 
          
         
