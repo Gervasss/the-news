@@ -24,7 +24,7 @@ export function Leitores() {
 
       <div className="content-1">
        
-        <section className="cadastro-1-relatory">
+        <section className="cadastro-1-leitor">
         
         <h1 style={{ marginLeft: "1%" }}>Seus Dados</h1>
         <CiLogout  size={30} className='log-out'/>
