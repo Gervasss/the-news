@@ -64,7 +64,14 @@ export const Button = styled.button`
     transform: scale(1.02)
    
   }
-  
+    .loader {
+    border: 2px solid #fff;
+    border-top: 2px solid#240E0B;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 2s linear infinite;
+  }
 
   @keyframes spin {
     0% {
