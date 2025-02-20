@@ -25,9 +25,38 @@ export function VisaoGeral() {
       </div>
 
       <div className="content-1">
-        <section className="cadastro-1-relatory">
-        <h1 style={{ marginLeft: "1%" }}>Visão Geral</h1>
+        <section className="cadastro-1-relatory"  style={{backgroundColor:"#FFCE04"}}>
+        <h1 style={{ marginLeft: "1%",color:"#240E0B" }}>Visão Geral</h1>
+
+
+           <div className='content-total-leitores'>
+            <section className="total-leitores">
        
+            <h1 style={{ marginLeft: "1%",color:"#240E0B" }}>Leitores Ativos</h1>
+       
+      
+             </section>
+             </div>
+
+
+             <div className='content-media-streaks'>
+            <section className="media-streaks">
+       
+            <h1 style={{ marginLeft: "1%",color:"#240E0B" }}>Média de Streaks</h1>
+       
+      
+             </section>
+             </div>
+
+             <div className='content-total-aberturas'>
+            <section className="total-aberturas">
+       
+            <h1 style={{ marginLeft: "1%",color:"#240E0B" }}>Aberturas Newsletters</h1>
+       
+      
+             </section>
+             </div>
+             
         </section>
       </div>
     </AdminPageContainer>

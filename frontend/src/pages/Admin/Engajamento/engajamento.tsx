@@ -25,9 +25,27 @@ export function Engajamento() {
       </div>
 
       <div className="content-1">
-        <section className="cadastro-1-relatory">
+        <section className="cadastro-1-relatory" style={{backgroundColor:"#FFCE04"}}>
         <h1 style={{ marginLeft: "1%" }}>Engajamento</h1>
        
+        <div className='content-engajamento-leitor'>
+            <section className="engajamento-leitor">
+       
+            <h1 style={{ marginLeft: "1%",color:"#240E0B" }}>Engajamento ao longo do tempo</h1>
+       
+      
+            </section>
+             </div>
+             <div className='content-popular-dia'>
+            <section className="popular-dia">
+       
+            <h1 style={{ marginLeft: "1%",color:"#240E0B" }}>Comparação Entre Dias da Semana</h1>
+       
+      
+            </section>
+             </div>
+           
+
         </section>
       </div>
     </AdminPageContainer>

@@ -25,8 +25,17 @@ export function Ranking() {
       </div>
 
       <div className="content-1">
-        <section className="cadastro-1-relatory">
+        <section className="cadastro-1-relatory" style={{backgroundColor:"#FFCE04"}}>
         <h1 style={{ marginLeft: "1%" }}>Ranking</h1>
+
+        <div className='content-ranking-leitor'>
+            <section className="ranking-leitor">
+       
+            <h1 style={{ marginLeft: "1%",color:"#240E0B" }}>Usuários Mais Engajados</h1>
+       
+      
+            </section>
+             </div>
        
         </section>
       </div>

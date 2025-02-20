@@ -37,8 +37,93 @@
          
         }
         
-    
+        .content-estatistica-tempo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -60%;
+        }
         
+        
+        
+        
+        .content-estatistica-tempo .estatistica-tempo {
+          margin-top:96%;
+          margin-left: 5% !important;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 470px;
+          max-height: 0;
+          min-height: 30rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+        .content-estatistica-status {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-status .estatistica-status {
+          margin-top:-25%;
+          margin-left: 200%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 470px;
+          max-height: 0;
+          min-height: 30rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+  
+        .content-estatistica-newslatter {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: -17%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-newslatter .estatistica-newslatter {
+          margin-top:-25%;
+          margin-left: 650%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 270px;
+          max-height: 0;
+          min-height: 30rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+  
+    
     
         
       
@@ -83,8 +168,93 @@
          
         }
         
-  
+        .content-estatistica-tempo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -60%;
+        }
         
+        
+        
+        
+        .content-estatistica-tempo .estatistica-tempo {
+          margin-top:96%;
+          margin-left: 2% !important;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 400px;
+          max-height: 0;
+          min-height: 30rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+        .content-estatistica-status {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-status .estatistica-status {
+          margin-top:-37%;
+          margin-left: 190%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 400px;
+          max-height: 0;
+          min-height: 30rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+  
+        .content-estatistica-newslatter {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: -17%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-newslatter .estatistica-newslatter {
+          margin-top:-51%;
+          margin-left: 530%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 280px;
+          max-height: 0;
+          min-height: 30rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+  
+      
      
       
        
@@ -128,6 +298,93 @@
          
         }
         
+
+        .content-estatistica-tempo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -60%;
+        }
+        
+        
+        
+        
+        .content-estatistica-tempo .estatistica-tempo {
+          margin-top:96%;
+          margin-left: 2% !important;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 400px;
+          max-height: 0;
+          min-height: 30rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+        .content-estatistica-status {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-status .estatistica-status {
+          margin-top:-23%;
+          margin-left: 185%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 400px;
+          max-height: 0;
+          min-height: 30rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+  
+        .content-estatistica-newslatter {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: -17%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-newslatter .estatistica-newslatter {
+          margin-top:-20%;
+          margin-left: 560%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 260px;
+          max-height: 0;
+          min-height: 30rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+  
       
       
        
@@ -171,7 +428,92 @@
          
         }
         
-   
+        .content-estatistica-tempo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -60%;
+        }
+        
+        
+        
+        
+        .content-estatistica-tempo .estatistica-tempo {
+          margin-top:116%;
+          margin-left: 2% !important;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 340px;
+          max-height: 0;
+          min-height: 30rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+        .content-estatistica-status {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-status .estatistica-status {
+          margin-top:-37%;
+          margin-left: 190%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 340px;
+          max-height: 0;
+          min-height: 30rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+  
+        .content-estatistica-newslatter {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: -17%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-newslatter .estatistica-newslatter {
+          margin-top:-75%;
+          margin-left: 535%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 240px;
+          max-height: 0;
+          min-height: 30rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+  
         
       
        
@@ -216,7 +558,92 @@
          
         }
         
-     
+        .content-estatistica-tempo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -60%;
+        }
+        
+        
+        
+        
+        .content-estatistica-tempo .estatistica-tempo {
+          margin-top:93%;
+          margin-left: 2% !important;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 310px;
+          max-height: 0;
+          min-height: 25rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+        .content-estatistica-status {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-status .estatistica-status {
+          margin-top:-40%;
+          margin-left: 190%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 310px;
+          max-height: 0;
+          min-height: 25rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+  
+        .content-estatistica-newslatter {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: -17%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-newslatter .estatistica-newslatter {
+          margin-top:-41%;
+          margin-left: 500%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 240px;
+          max-height: 0;
+          min-height: 25rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+  
       
        
         }
@@ -258,7 +685,91 @@
          
         }
         
-     
+        .content-estatistica-tempo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -60%;
+        }
+        
+        
+        
+        
+        .content-estatistica-tempo .estatistica-tempo {
+          margin-top:93%;
+          margin-left: 2% !important;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 310px;
+          max-height: 0;
+          min-height: 25rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+        .content-estatistica-status {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-status .estatistica-status {
+          margin-top:-40%;
+          margin-left: 190%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 310px;
+          max-height: 0;
+          min-height: 25rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+  
+        .content-estatistica-newslatter {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: -17%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-newslatter .estatistica-newslatter {
+          margin-top:-41%;
+          margin-left: 500%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 240px;
+          max-height: 0;
+          min-height: 25rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
         
       
        
@@ -300,7 +811,91 @@
          
         }
         
-      
+        .content-estatistica-tempo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -60%;
+        }
+        
+        
+        
+        
+        .content-estatistica-tempo .estatistica-tempo {
+          margin-top:118%;
+          margin-left: 2% !important;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 305px;
+          max-height: 0;
+          min-height: 25rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+        .content-estatistica-status {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-status .estatistica-status {
+          margin-top:-40%;
+          margin-left: 190%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 305px;
+          max-height: 0;
+          min-height: 25rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+  
+        .content-estatistica-newslatter {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: -17%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-newslatter .estatistica-newslatter {
+          margin-top:-96%;
+          margin-left: 545%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 210px;
+          max-height: 0;
+          min-height: 25rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
       
       
        
@@ -340,7 +935,91 @@
          
         }
         
-   
+        .content-estatistica-tempo {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -60%;
+        }
+        
+        
+        
+        
+        .content-estatistica-tempo .estatistica-tempo {
+          margin-top:85%;
+          margin-left: 2% !important;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 310px;
+          max-height: 0;
+          min-height: 20rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+        .content-estatistica-status {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 5%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-status .estatistica-status {
+          margin-top:-40%;
+          margin-left: 185%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 310px;
+          max-height: 0;
+          min-height: 20rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
+  
+        .content-estatistica-newslatter {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: -17%;
+          margin-bottom: 50px;
+          height: 20%;
+          margin-left: -50%;
+        }
+        
+        
+        
+        
+        .content-estatistica-newslatter .estatistica-newslatter {
+          margin-top:-48%;
+          margin-left: 520%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 220px;
+          max-height: 0;
+          min-height: 20rem;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0px 0px 10px #000;
+         
+        }
         
       
        
@@ -385,7 +1064,92 @@
        
       }
       
-   
+      .content-estatistica-tempo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5%;
+        margin-bottom: 50px;
+        height: 20%;
+        margin-left: -60%;
+      }
+      
+      
+      
+      
+      .content-estatistica-tempo .estatistica-tempo {
+        margin-top:85%;
+        margin-left: 2% !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 310px;
+        max-height: 0;
+        min-height: 20rem;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #000;
+       
+      }
+      .content-estatistica-status {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 5%;
+        margin-bottom: 50px;
+        height: 20%;
+        margin-left: -50%;
+      }
+      
+      
+      
+      
+      .content-estatistica-status .estatistica-status {
+        margin-top:-40%;
+        margin-left: 185%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 310px;
+        max-height: 0;
+        min-height: 20rem;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #000;
+       
+      }
+
+      .content-estatistica-newslatter {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: -17%;
+        margin-bottom: 50px;
+        height: 20%;
+        margin-left: -50%;
+      }
+      
+      
+      
+      
+      .content-estatistica-newslatter .estatistica-newslatter {
+        margin-top:-48%;
+        margin-left: 520%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 220px;
+        max-height: 0;
+        min-height: 20rem;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #000;
+       
+      }
+      
       
     
      
