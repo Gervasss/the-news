@@ -3,7 +3,11 @@ import { AdminPageContainer } from "../../components/AdminPageContainer";
 import { CiLogout } from "react-icons/ci";
 import api from "../../services/api"; 
 import "./styles.css";
+import "../../components/mensagemComponent/styles.css";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
+import { Mensagem } from "../Admin/mensagens/mensagens";
+import MenssagemComponent from "../../components/mensagemComponent";
+import MensagemComponent from "../../components/mensagemComponent";
 
 export function Leitores() {
   const [streak, setStreak] = useState<number>(0);
@@ -11,15 +15,16 @@ export function Leitores() {
   const [history, setHistory] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [showTooltip, setShowTooltip] = useState(false);
- 
+  const [userId, setUserId] = useState<string | null>(null);
+  const [hasNewMessage, setHasNewMessage] = useState(false);
+  const [latestMessage, setLatestMessage] = useState<{ id: number; conteudo: string } | null>(null);
 
-  
+
   const logout = () => {
     localStorage.removeItem("token");
     window.location.href = "/";
   };
 
-  // Obtém os dados do usuário autenticado
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -35,11 +40,10 @@ export function Leitores() {
           headers: { Authorization: `Bearer ${token}` },
         });
 
-       
+        setUserId(response.data.id);
         setStreak(response.data.streak?.streak || 0);
         setLastOpened(response.data.streak?.lastOpened || null);
 
-        // Atualiza o histórico, garantindo que os dados sejam mantidos corretamente
         setHistory((prevHistory) => {
           const newEntry = new Date(response.data.streak?.lastOpened).toLocaleDateString("pt-BR", {
             day: "2-digit",
@@ -48,12 +52,10 @@ export function Leitores() {
           });
 
           if (prevHistory.includes(newEntry)) {
-            return prevHistory; // Evita duplicatas
+            return prevHistory;
           }
-
-          return [...prevHistory, newEntry]; 
+          return [...prevHistory, newEntry];
         });
-
       } catch (err) {
         console.error("Erro ao buscar dados do usuário:", err);
         setError("Erro ao carregar dados.");
@@ -63,21 +65,46 @@ export function Leitores() {
     fetchUserData();
   }, []);
 
+  useEffect(() => {
+    const checkForNewMessage = async () => {
+      if (!userId) return;
+  
+      try {
+        const response = await api.get("/mensagens"); // Pegamos todas as mensagens
+        const mensagens: { id: number; conteudo: string }[] = response.data;
+  
+        if (mensagens.length > 0) {
+          const lastMensagem = mensagens[mensagens.length - 1]; // Última cadastrada
+          const viewedMessages = JSON.parse(localStorage.getItem(`viewedMessages_${userId}`) || "[]");
+  
+          if (!viewedMessages.includes(lastMensagem.id)) {
+            setHasNewMessage(true);
+            setLatestMessage({ id: lastMensagem.id, conteudo: lastMensagem.conteudo });
+          }
+        }
+      } catch (error) {
+        console.error("Erro ao verificar mensagens:", error);
+      }
+    };
+  
+    checkForNewMessage();
+  }, [userId]);
+  
+
   return (
     <AdminPageContainer padding="0px">
+    {userId && hasNewMessage && latestMessage && (
+  <MensagemComponent userId={userId} message={latestMessage} />
+     )}
+
       <div className="content-1">
         <section className="cadastro-1-leitor" style={{ backgroundColor: "#FFCE04" }}>
           <h1 style={{ marginLeft: "1%", color: "#240E0B" }}>Meus Dados</h1>
           <CiLogout size={30} className="log-out" onClick={logout} onMouseOver={() => setShowTooltip(true)} 
             onMouseOut={() => setShowTooltip(false)} />
               {showTooltip && (
-              <span
-              className="tooltip"
-              >
-                Sair da conta
-              </span>
+              <span className="tooltip">Sair da conta</span>
             )}
-           {/* Streak Atual*/}
           <div className="content-streak-leitor">
             <section className="streak-leitor">
               <h1 style={{ marginLeft: "1%", color: "#240E0B" }}>Streak Atual</h1>
@@ -97,7 +124,6 @@ export function Leitores() {
               {lastOpened && <p>Última abertura: {new Date(lastOpened).toLocaleDateString("pt-BR")}</p>}
             </section>
           </div>
-           {/* Histórico de aberturas */}
           <div className="content-historico-leitor">
             <section className="historico-leitor">
               <h1 style={{ marginLeft: "1%", color: "#240E0B" }}>Histórico de Aberturas</h1>

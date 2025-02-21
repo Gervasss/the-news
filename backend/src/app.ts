@@ -7,6 +7,7 @@ import userRoutes from "./routes/user.Routes";
 import adminRoutes from "./routes/admin.Routes";
 import streakRoutes from "./routes/streak.Routes";
 import webhookRoutes from "./routes/webhook.Routes";
+import mensagemRoutes from "./routes/mensagem.Routes";
 
 dotenv.config();
 
@@ -26,5 +27,9 @@ app.use("/user", userRoutes);
 app.use("/admin", adminRoutes);
 app.use("/streak", streakRoutes);
 app.use("/webhook", webhookRoutes);
+app.use("/mensagens", mensagemRoutes);
+
+
+  
 
 export default app;

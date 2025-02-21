@@ -9,6 +9,7 @@ import { Ranking } from './pages/Admin/Ranking/ranking';
 import { Estatisticas } from './pages/Admin/Estatisticas/estatisticas';
 import { Engajamento } from './pages/Admin/Engajamento/engajamento';
 import { Leitores } from './pages/leitores/leitoresPage';
+import { Mensagem } from './pages/Admin/mensagens/mensagens';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
         <Route path="/admin/Ranking" element={<Ranking />} />
         <Route path="/admin/Estatistica" element={<Estatisticas />} />
         <Route path="/admin/Engajamento" element={<Engajamento />} />
+        <Route path="/admin/Mensagem" element={<Mensagem />} />
         <Route path="/Leitores" element={<Leitores />} />
       </Routes>
     </Router>

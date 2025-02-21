@@ -45,4 +45,40 @@ export const getDashboardMetrics = async () => {
   return response.data; // Retorna { totalUsers, totalOpens, topUsers }
 };
 
+// Endpoints de Mensagens
+export const createMensagem = async (conteudo: string, token: string) => {
+  const response = await api.post("/mensagens", { conteudo }, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+};
+
+export const getMensagens = async (token: string) => {
+  const response = await api.get("/mensagens", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+};
+
+export const getMensagemById = async (id: string, token: string) => {
+  const response = await api.get(`/mensagens/${id}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+};
+
+export const updateMensagem = async (id: string, conteudo: string, token: string) => {
+  const response = await api.put(`/mensagens/${id}`, { conteudo }, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+};
+
+export const deleteMensagem = async (id: string, token: string) => {
+  const response = await api.delete(`/mensagens/${id}`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+};
+
 export default api;

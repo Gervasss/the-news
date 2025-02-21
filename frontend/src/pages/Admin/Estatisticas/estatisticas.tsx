@@ -34,7 +34,7 @@ export function Estatisticas() {
   
         // Filtrar usuários com streak acima de 6 dias
         const usersWithStreak = response.data.topUsers
-          .filter((user: any) => user.streak > 0.5)
+          .filter((user: any) => user.streak > 6)
           .map((user: any) => ({
             email: user.email,
             streak: user.streak,

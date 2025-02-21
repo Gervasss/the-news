@@ -38,6 +38,8 @@ export function SidebarComponent() {
 
           <Sidebutton tittle="Engajamento" onClick={() => navigate('/admin/engajamento')} />
 
+          <Sidebutton tittle="Mensagem" onClick={() => navigate('/admin/mensagem')} />
+
          
         
 

@@ -61,7 +61,7 @@ export const Button = styled.button`
   justify-content: center;
   :hover {
    background-color:#240E0B;
-    transform: scale(1.02)
+    transform: scale(0.2s)
    
   }
     .loader {

@@ -14,6 +14,7 @@ import { MdOutlineInventory } from "react-icons/md";
 import { MdOutlineEventAvailable } from "react-icons/md";
 import { TbReport } from 'react-icons/tb';
 import { FaThumbsUp } from "react-icons/fa";
+import { TbMessageMinus } from "react-icons/tb";
 
 export function AdminHome() {
 
@@ -52,6 +53,7 @@ export function AdminHome() {
         <ShowCard title="Ranking "  icon={<HiTrophy  onClick={() => navigate('/admin/ranking')} style={{ cursor: "pointer" }} />} />
         <ShowCard title="Estatística"  icon={<IoIosStats onClick={() => navigate('/admin/estatistica')} style={{ cursor: "pointer" }} />} />
         <ShowCard title="Engajamento"  icon={<FaThumbsUp   onClick={() => navigate('/admin/engajamento')} style={{ cursor: "pointer" }} />} />
+        <ShowCard title="Mensagem"  icon={<TbMessageMinus  onClick={() => navigate('/admin/mensagem')} style={{ cursor: "pointer" }} />} />
           
       
         

@@ -14,6 +14,7 @@ model User {
 
   streak    UserStreak?
   opens     NewsletterOpen[]
+  messages  Mensagem[]
 }
 
 model Newsletter {
@@ -41,4 +42,12 @@ model NewsletterOpen {
 
   user         User       @relation(fields: [userId], references: [id], onDelete: Cascade)
   newsletter   Newsletter @relation(fields: [newsletterId], references: [id], onDelete: Cascade)
+}
+
+model Mensagem {
+  id       Int    @id @default(autoincrement())
+  conteudo String
+  userId   Int?
+
+  user     User ?  @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
