@@ -1,7 +1,8 @@
 import axios from "axios";
 
-{/*const API_BASE_URL = "https://4635-191-251-11-23.ngrok-free.app";  */}
-const API_BASE_URL = " http://localhost:4000"; 
+{/*const API_BASE_URL = "http://localhost:4000";  */}
+const API_BASE_URL = "https://a0dd-191-251-10-127.ngrok-free.app";
+
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -33,10 +34,13 @@ export const getUserProfile = async (token: string) => {
 };
 
 //  Função para processar manualmente um webhook (somente para testes)
-export const testWebhook = async (email: string, postId: string) => {
-  const response = await api.post("/webhook/newsletter-open", { email, id: postId });
+export const testWebhookQuery = async (email: string, postId: string) => {
+  const response = await api.get("/webhook/newsletter-open", {
+    params: { email, id: postId }
+  });
   return response.data; // Retorna { message: "Registro atualizado!" }
 };
+
 
 //  Função para obter métricas do dashboard administrativo
 export const getDashboardMetrics = async () => {

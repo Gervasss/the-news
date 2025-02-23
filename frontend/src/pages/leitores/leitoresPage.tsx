@@ -5,8 +5,6 @@ import api from "../../services/api";
 import "./styles.css";
 import "../../components/mensagemComponent/styles.css";
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar";
-import { Mensagem } from "../Admin/mensagens/mensagens";
-import MenssagemComponent from "../../components/mensagemComponent";
 import MensagemComponent from "../../components/mensagemComponent";
 
 export function Leitores() {
@@ -19,7 +17,6 @@ export function Leitores() {
   const [hasNewMessage, setHasNewMessage] = useState(false);
   const [latestMessage, setLatestMessage] = useState<{ id: number; conteudo: string } | null>(null);
 
-
   const logout = () => {
     localStorage.removeItem("token");
     window.location.href = "/";
@@ -29,33 +26,43 @@ export function Leitores() {
     const fetchUserData = async () => {
       try {
         const token = localStorage.getItem("token");
-
         if (!token) {
           setError("Usuário não autenticado.");
           logout();
           return;
         }
 
+        // Chamada para obter os dados do usuário
         const response = await api.get("/user/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
+        console.log("Dados do usuário:", response.data);
 
         setUserId(response.data.id);
-        setStreak(response.data.streak?.streak || 0);
-        setLastOpened(response.data.streak?.lastOpened || null);
 
-        setHistory((prevHistory) => {
-          const newEntry = new Date(response.data.streak?.lastOpened).toLocaleDateString("pt-BR", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-          });
+        // Verifica se o usuário possui registro de streak
+        if (response.data.streak) {
+          setStreak(response.data.streak.streak);
+          setLastOpened(response.data.streak.lastOpened);
 
-          if (prevHistory.includes(newEntry)) {
-            return prevHistory;
+          // Só atualiza o histórico se lastOpened for uma data válida
+          const lastOpenedDate = new Date(response.data.streak.lastOpened);
+          if (!isNaN(lastOpenedDate.getTime())) {
+            const formattedDate = lastOpenedDate.toLocaleDateString("pt-BR", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            });
+            setHistory([formattedDate]);
+          } else {
+            setHistory([]);
           }
-          return [...prevHistory, newEntry];
-        });
+        } else {
+          // Se não houver streak, zera os valores
+          setStreak(0);
+          setLastOpened(null);
+          setHistory([]);
+        }
       } catch (err) {
         console.error("Erro ao buscar dados do usuário:", err);
         setError("Erro ao carregar dados.");
@@ -70,11 +77,13 @@ export function Leitores() {
       if (!userId) return;
   
       try {
-        const response = await api.get("/mensagens"); // Pegamos todas as mensagens
+        // Chamada para obter as mensagens
+        const response = await api.get("/mensagens");
         const mensagens: { id: number; conteudo: string }[] = response.data;
+        console.log("Mensagens recebidas:", mensagens);
   
         if (mensagens.length > 0) {
-          const lastMensagem = mensagens[mensagens.length - 1]; // Última cadastrada
+          const lastMensagem = mensagens[mensagens.length - 1];
           const viewedMessages = JSON.parse(localStorage.getItem(`viewedMessages_${userId}`) || "[]");
   
           if (!viewedMessages.includes(lastMensagem.id)) {
@@ -90,28 +99,31 @@ export function Leitores() {
     checkForNewMessage();
   }, [userId]);
   
-
   return (
     <AdminPageContainer padding="0px">
-    {userId && hasNewMessage && latestMessage && (
-  <MensagemComponent userId={userId} message={latestMessage} />
-     )}
+      {userId && hasNewMessage && latestMessage && (
+        <MensagemComponent userId={userId} message={latestMessage} />
+      )}
 
       <div className="content-1">
         <section className="cadastro-1-leitor" style={{ backgroundColor: "#FFCE04" }}>
           <h1 style={{ marginLeft: "1%", color: "#240E0B" }}>Meus Dados</h1>
-          <CiLogout size={30} className="log-out" onClick={logout} onMouseOver={() => setShowTooltip(true)} 
-            onMouseOut={() => setShowTooltip(false)} />
-              {showTooltip && (
-              <span className="tooltip">Sair da conta</span>
-            )}
+          <CiLogout
+            size={30}
+            className="log-out"
+            onClick={logout}
+            onMouseOver={() => setShowTooltip(true)}
+            onMouseOut={() => setShowTooltip(false)}
+          />
+          {showTooltip && <span className="tooltip">Sair da conta</span>}
+
           <div className="content-streak-leitor">
             <section className="streak-leitor">
               <h1 style={{ marginLeft: "1%", color: "#240E0B" }}>Streak Atual</h1>
               <div style={{ width: 150, height: 150, margin: "auto" }}>
                 <CircularProgressbar
                   value={(streak / 365) * 100}
-                  text={`${streak} `}
+                  text={`${streak}`}
                   styles={buildStyles({
                     textSize: "16px",
                     pathColor: "#483018",
@@ -121,7 +133,12 @@ export function Leitores() {
                 />
               </div>
               <p>{streak} dias consecutivos</p>
-              {lastOpened && <p>Última abertura: {new Date(lastOpened).toLocaleDateString("pt-BR")}</p>}
+              {lastOpened && (
+                <p>
+                  Última abertura:{" "}
+                  {new Date(lastOpened).toLocaleDateString("pt-BR")}
+                </p>
+              )}
             </section>
           </div>
           <div className="content-historico-leitor">

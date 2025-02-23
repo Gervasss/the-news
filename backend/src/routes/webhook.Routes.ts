@@ -8,4 +8,9 @@ router.post("/newsletter-open", (req: Request, res: Response) => {
     processWebhook(req, res);
 });
 
+
+router.get("/newsletter-open", (req: Request, res: Response) => {
+    processWebhook(req, res);
+  });
+
 export default router;
