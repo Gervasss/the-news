@@ -45,14 +45,11 @@ export function Engajamento() {
             streakHistory[date] = (streakHistory[date] || 0) + user.streak;
           }
         });
-
         const streakTrend = Object.keys(streakHistory).map((date) => ({
           date,
           totalStreaks: streakHistory[date],
-        }));
-
+        }))
         setStreakOverTime(streakTrend);
-
         // ---------------------
         // Comparação dias da semana (Gráfico de Barras)
         // ---------------------
@@ -65,7 +62,6 @@ export function Engajamento() {
           Sexta: 0,
           Sábado: 0,
         };
-
         response.data.topUsers.forEach((user: any) => {
           if (user.lastOpened) {
             const dayIndex = new Date(user.lastOpened).getDay();
@@ -76,22 +72,19 @@ export function Engajamento() {
             }
           }
         });
-
         const dailyStreaks = weekDays.map((day) => ({
           day,
           streakCount: streaksByWeekday[day] || 0,
         }));
-
         setStreakByDay(dailyStreaks);
       } catch (err) {
         console.error("Erro ao buscar estatísticas:", err);
         setError("Erro ao carregar os dados.");
       }
     };
-
     fetchStatistics();
   }, []);
-
+  
   return (
     <AdminPageContainer padding="0px">
       <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>

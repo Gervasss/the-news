@@ -12,21 +12,17 @@ export function Ranking() {
     const fetchMetrics = async () => {
       try {
         const response = await api.get("/admin/metrics");
-
-      
         const topUsers = response.data.topUsers.map((user: any) => ({
           email: user.email, 
           streak: user.streak || 0, 
         })).sort((a:any, b:any) => b.streak - a.streak)
         ;
-
         setUserStreaks(topUsers);
       } catch (err) {
         console.error("Erro ao buscar métricas:", err);
         setError("Erro ao carregar os dados.");
       }
     };
-
     fetchMetrics();
   }, []);
 

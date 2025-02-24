@@ -31,17 +31,13 @@ export function Leitores() {
           logout();
           return;
         }
-
-        // 🔹 Chamada para obter os dados do usuário
+        //  Chamada para obter os dados do usuário
         const response = await api.get("/user/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
-
         console.log("📩 Dados do usuário recebidos:", response.data);
-
         setUserId(response.data.id);
-
-        // 🔹 Define o streak e o lastOpened
+        //  Define o streak e o lastOpened
         if (response.data.streak) {
           setStreak(response.data.streak.streak);
           setLastOpened(response.data.streak.lastOpened);
@@ -49,8 +45,7 @@ export function Leitores() {
           setStreak(0);
           setLastOpened(null);
         }
-
-        // 🔹 Verifica se há histórico de aberturas e formata todas as datas
+        //  Verifica se há histórico de aberturas e formata todas as datas
         if (response.data.opens && Array.isArray(response.data.opens)) {
           const formattedHistory = response.data.opens.map((open: { openedAt: string }) =>
             new Date(open.openedAt).toLocaleDateString("pt-BR", {
@@ -64,29 +59,24 @@ export function Leitores() {
         } else {
           setHistory([]);
         }
-
       } catch (err) {
         console.error("❌ Erro ao buscar dados do usuário:", err);
         setError("Erro ao carregar dados.");
       }
     };
-
     fetchUserData();
   }, []);
 
   useEffect(() => {
     const checkForNewMessage = async () => {
       if (!userId) return;
-  
       try {
         const response = await api.get("/mensagens");
         const mensagens: { id: number; conteudo: string }[] = response.data;
         console.log("📩 Mensagens recebidas:", mensagens);
-  
         if (mensagens.length > 0) {
           const lastMensagem = mensagens[mensagens.length - 1];
           const viewedMessages = JSON.parse(localStorage.getItem(`viewedMessages_${userId}`) || "[]");
-  
           if (!viewedMessages.includes(lastMensagem.id)) {
             setHasNewMessage(true);
             setLatestMessage({ id: lastMensagem.id, conteudo: lastMensagem.conteudo });
@@ -96,7 +86,6 @@ export function Leitores() {
         console.error("❌ Erro ao verificar mensagens:", error);
       }
     };
-  
     checkForNewMessage();
   }, [userId]);
   

@@ -12,12 +12,10 @@ export const processWebhook = async (req: Request, res: Response) => {
     // Converta os valores para string, se necessário
     const emailStr = String(email);
     const postIdStr = String(postId);
-    // Busca ou cria o usuário
     let user = await prisma.user.findUnique({ where: { email: emailStr } });
     if (!user) {
       user = await prisma.user.create({ data: { email: emailStr } });
     }
-    // Busca ou cria a newsletter
     let newsletter = await prisma.newsletter.findUnique({ where: { postId: postIdStr } });
     if (!newsletter) {
       newsletter = await prisma.newsletter.create({ data: { postId: postIdStr, sentAt: new Date() } });

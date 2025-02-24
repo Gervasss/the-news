@@ -14,12 +14,10 @@ export function Estatisticas() {
     const fetchStatistics = async () => {
       try {
         const response = await api.get("/admin/metrics");
-    
         if (!response.data || !response.data.topUsers || !response.data.newsletterStats) {
           setError("Erro ao carregar os dados.");
           return;
         }
-  
         // Filtrar usuários ativos nos últimos 7 dias
         const last7DaysUsers = response.data.topUsers.map((user: any) => ({
           email: user.email,
@@ -29,9 +27,7 @@ export function Estatisticas() {
           streak: user.streak || 0,
         })).sort((a:any, b:any) => b.streak - a.streak); 
         ;
-  
         setUsersLast7Days(last7DaysUsers);
-  
         // Filtrar usuários com streak acima de 6 dias
         const usersWithStreak = response.data.topUsers
           .filter((user: any) => user.streak > 6)
@@ -41,9 +37,7 @@ export function Estatisticas() {
           }
         )).sort((a:any, b:any) => b.streak - a.streak); 
         ;
-  
         setStreakAbove(usersWithStreak);
-  
         // Ordenar newsletters mais abertas 
         const newsletters = response.data.newsletterStats
           .map((newsletter: any) => ({
@@ -58,7 +52,6 @@ export function Estatisticas() {
         setError("Erro ao carregar os dados.");
       }
     };
-  
     fetchStatistics();
   }, []);
   
@@ -68,7 +61,6 @@ export function Estatisticas() {
       <div style={{ height: "90%", width: "94.8%", marginTop: "10px", marginLeft: "10px" }}>
         <SidebarComponent />
       </div>
-
       <div className="content-1">
         <section className="cadastro-1-relatory" style={{ backgroundColor: "#FFCE04" }}>
           <h1 style={{ marginLeft: "1%" }}>Estatísticas</h1>
@@ -90,7 +82,6 @@ export function Estatisticas() {
               )}
             </section>
           </div>
-
           {/* Status do Streak */}
           <div className="content-estatistica-status">
             <section className="estatistica-status">
@@ -109,7 +100,6 @@ export function Estatisticas() {
               )}
             </section>
           </div>
-
           {/* Newsletters Mais Abertos */}
           <div className="content-estatistica-newslatter">
             <section className="estatistica-newslatter">

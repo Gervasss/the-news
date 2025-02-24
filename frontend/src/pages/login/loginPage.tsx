@@ -17,12 +17,9 @@ const Login = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true); // Ativa o loading ao iniciar o login
-
     console.log("Submit");
-
     try {
       const response = await loginOrRegister(email); 
-
       if (response && response.token) {
         console.log("Login bem-sucedido:", response);
         localStorage.setItem("token", response.token); 

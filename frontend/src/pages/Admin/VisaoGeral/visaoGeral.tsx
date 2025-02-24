@@ -20,21 +20,14 @@ export function VisaoGeral() {
     const fetchMetrics = async () => {
       try {
         const response = await api.get("/admin/metrics");
-
-       
-
         setTotalOpens(response.data.totalOpens);
-
-        // Lista de leitores ativos
         setActiveUsers(response.data.topUsers.map((user: any) => ({ email: user.email })));
-
         // Lista de usuários e seus streaks
         const streaksData = response.data.topUsers.map((user: any) => ({
           email: user.email,
           streak: user.streak || 0, 
         }));
         setUserStreaks(streaksData);
-
         // Média de streaks por usuário
         const streakSum = response.data.topUsers.reduce((sum: number, user: any) => sum + user.streak, 0);
         const avg = streaksData.length ? streakSum / streaksData.length : 0;
@@ -44,7 +37,6 @@ export function VisaoGeral() {
         setError("Erro ao carregar os dados.");
       }
     };
-
     fetchMetrics();
   }, []);
 

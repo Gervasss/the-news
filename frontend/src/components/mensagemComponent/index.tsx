@@ -15,7 +15,7 @@ const MensagemComponent: React.FC<MensagemComponentProps> = ({ userId, message }
       setShowPopup(true);
     }
   }, [message]);
-
+  
   const closePopup = () => {
     if (message) {
       const viewedMessages = JSON.parse(localStorage.getItem(`viewedMessages_${userId}`) || "[]");
