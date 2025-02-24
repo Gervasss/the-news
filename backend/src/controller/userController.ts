@@ -3,7 +3,7 @@ import { prisma } from "../prisma/prisma";
 
 export const getUserProfile = async (req: Request, res: Response) => {
     try {
-        const userId = (req as any).userId; // Pegando o ID do usuário autenticado
+        const userId = (req as any).userId; // ID do usuário autenticado
 
         const user = await prisma.user.findUnique({
             where: { id: userId },
@@ -11,8 +11,9 @@ export const getUserProfile = async (req: Request, res: Response) => {
                 id: true,
                 email: true,
                 createdAt: true,
-                streak: {
-                    select: { streak: true, lastOpened: true }
+                streak: { select: { streak: true, lastOpened: true } },
+                opens: { 
+                    select: { openedAt: true }  //  Agora retorna todas as aberturas do usuário
                 }
             }
         });

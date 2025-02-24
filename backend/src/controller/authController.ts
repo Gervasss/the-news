@@ -10,15 +10,11 @@ export const loginOrRegister = async (req: Request, res: Response): Promise<void
             res.status(400).json({ error: "E-mail é obrigatório." });
             return;
         }
-
-       
-        let user = await prisma.user.findUnique({ where: { email } });
-
+        let user = await prisma.user.findUnique({ where: { email } })
         if (!user) {
             res.status(401).json({ error: "E-mail não cadastrado." });
             return;
         }
-
         //  Gera o token JWT e retorna os dados do usuário
         const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET as string, { expiresIn: "7d" });
 

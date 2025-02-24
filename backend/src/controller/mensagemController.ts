@@ -2,7 +2,7 @@ const { PrismaClient } = require('@prisma/client');
 import { Request, Response } from "express";
 const prisma = new PrismaClient();
 
-// Criar uma nova mensagem
+
 
 export const createMensagem = async (req:Request, res:Response) => {
     try {
@@ -15,9 +15,6 @@ export const createMensagem = async (req:Request, res:Response) => {
         res.status(500).json({ error: 'Erro ao criar mensagem' });
     }
 };
-
-// Obter todas as mensagens
-
 export const getMensagens = async (req:Request, res:Response) => {
     try {
         const mensagens = await prisma.mensagem.findMany();
@@ -26,9 +23,6 @@ export const getMensagens = async (req:Request, res:Response) => {
         res.status(500).json({ error: 'Erro ao buscar mensagens' });
     }
 };
-
-// Obter uma mensagem por ID
-
 export const getMensagemById = async (req:Request, res:Response) => {
     try {
         const { id } = req.params;
@@ -41,10 +35,6 @@ export const getMensagemById = async (req:Request, res:Response) => {
         res.status(500).json({ error: 'Erro ao buscar mensagem' });
     }
 };
-
-// Atualizar uma mensagem
-
- 
 export const updateMensagem = async (req:Request, res:Response) => {
     try {
         const { id } = req.params;
@@ -58,9 +48,6 @@ export const updateMensagem = async (req:Request, res:Response) => {
         res.status(500).json({ error: 'Erro ao atualizar mensagem' });
     }
 };
-
-// Deletar uma mensagem
-
 export const deleteMensagem = async (req:Request, res:Response) => {
     try {
         const { id } = req.params;

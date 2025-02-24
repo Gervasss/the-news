@@ -4,43 +4,34 @@ import dayjs from "dayjs";
 
 export const processWebhook = async (req: Request, res: Response) => {
   try {
-    // Extraindo os parâmetros da query string
     const { email, id: postId } =  req.query;
-
     if (!email || !postId) {
       return res.status(400).json({ error: "Email e ID da newsletter são obrigatórios!" });
     }
-
     console.log("📩 Webhook recebido!", { email, postId });
-
     // Converta os valores para string, se necessário
     const emailStr = String(email);
     const postIdStr = String(postId);
-
     // Busca ou cria o usuário
     let user = await prisma.user.findUnique({ where: { email: emailStr } });
     if (!user) {
       user = await prisma.user.create({ data: { email: emailStr } });
     }
-
     // Busca ou cria a newsletter
     let newsletter = await prisma.newsletter.findUnique({ where: { postId: postIdStr } });
     if (!newsletter) {
       newsletter = await prisma.newsletter.create({ data: { postId: postIdStr, sentAt: new Date() } });
     }
-
     // Verifica se já existe um registro de abertura para essa newsletter pelo usuário
     const existingOpen = await prisma.newsletterOpen.findFirst({
       where: { userId: user.id, newsletterId: newsletter.id },
     });
-
     let updatedUserStreak = null;
     if (!existingOpen) {
       // Cria o registro de abertura
       await prisma.newsletterOpen.create({
         data: { userId: user.id, newsletterId: newsletter.id },
       });
-
       // Obtém a data atual e ignora domingos para atualização de streak
       const today = dayjs().startOf("day");
       const todayDayOfWeek = today.day(); // 0 = domingo, 1 = segunda, etc.
@@ -55,7 +46,6 @@ export const processWebhook = async (req: Request, res: Response) => {
         } else {
           const lastOpened = dayjs(userStreak.lastOpened).startOf("day");
           const lastOpenedDayOfWeek = lastOpened.day();
-
           const isConsecutiveMonday =
             lastOpenedDayOfWeek === 6 &&
             todayDayOfWeek === 1 &&
@@ -86,13 +76,11 @@ export const processWebhook = async (req: Request, res: Response) => {
       // Se o registro já existe, apenas recupera o streak atual
       updatedUserStreak = await prisma.userStreak.findUnique({ where: { userId: user.id } });
     }
-
     // Consulta as aberturas da newsletter usando o campo "openedAt"
     const newsletterOpens = await prisma.newsletterOpen.findMany({
       where: { newsletterId: newsletter.id },
       orderBy: { openedAt: "asc" },
     });
-
     // Monta o objeto de resposta com todas as informações necessárias
     const responseData = {
       message: "Registro atualizado!",
@@ -112,7 +100,6 @@ export const processWebhook = async (req: Request, res: Response) => {
         })),
       },
     };
-
     console.log(`✅ Webhook processado com sucesso para: ${emailStr}`);
     return res.status(200).json(responseData);
   } catch (error) {

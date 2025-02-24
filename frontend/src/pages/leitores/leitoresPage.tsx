@@ -32,39 +32,41 @@ export function Leitores() {
           return;
         }
 
-        // Chamada para obter os dados do usuário
+        // 🔹 Chamada para obter os dados do usuário
         const response = await api.get("/user/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
-        console.log("Dados do usuário:", response.data);
+
+        console.log("📩 Dados do usuário recebidos:", response.data);
 
         setUserId(response.data.id);
 
-        // Verifica se o usuário possui registro de streak
+        // 🔹 Define o streak e o lastOpened
         if (response.data.streak) {
           setStreak(response.data.streak.streak);
           setLastOpened(response.data.streak.lastOpened);
+        } else {
+          setStreak(0);
+          setLastOpened(null);
+        }
 
-          // Só atualiza o histórico se lastOpened for uma data válida
-          const lastOpenedDate = new Date(response.data.streak.lastOpened);
-          if (!isNaN(lastOpenedDate.getTime())) {
-            const formattedDate = lastOpenedDate.toLocaleDateString("pt-BR", {
+        // 🔹 Verifica se há histórico de aberturas e formata todas as datas
+        if (response.data.opens && Array.isArray(response.data.opens)) {
+          const formattedHistory = response.data.opens.map((open: { openedAt: string }) =>
+            new Date(open.openedAt).toLocaleDateString("pt-BR", {
               day: "2-digit",
               month: "2-digit",
               year: "numeric",
-            });
-            setHistory([formattedDate]);
-          } else {
-            setHistory([]);
-          }
+            })
+          );
+
+          setHistory(formattedHistory);
         } else {
-          // Se não houver streak, zera os valores
-          setStreak(0);
-          setLastOpened(null);
           setHistory([]);
         }
+
       } catch (err) {
-        console.error("Erro ao buscar dados do usuário:", err);
+        console.error("❌ Erro ao buscar dados do usuário:", err);
         setError("Erro ao carregar dados.");
       }
     };
@@ -77,10 +79,9 @@ export function Leitores() {
       if (!userId) return;
   
       try {
-        // Chamada para obter as mensagens
         const response = await api.get("/mensagens");
         const mensagens: { id: number; conteudo: string }[] = response.data;
-        console.log("Mensagens recebidas:", mensagens);
+        console.log("📩 Mensagens recebidas:", mensagens);
   
         if (mensagens.length > 0) {
           const lastMensagem = mensagens[mensagens.length - 1];
@@ -92,7 +93,7 @@ export function Leitores() {
           }
         }
       } catch (error) {
-        console.error("Erro ao verificar mensagens:", error);
+        console.error("❌ Erro ao verificar mensagens:", error);
       }
     };
   
@@ -141,6 +142,7 @@ export function Leitores() {
               )}
             </section>
           </div>
+
           <div className="content-historico-leitor">
             <section className="historico-leitor">
               <h1 style={{ marginLeft: "1%", color: "#240E0B" }}>Histórico de Aberturas</h1>

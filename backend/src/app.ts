@@ -15,13 +15,6 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());  
-
-//  Adicione a rota de teste ANTES das outras rotas
-app.get("/", (req, res) => {
-    res.json({ message: "API funcionando!" });
-});
-
-
 app.use("/auth", authRoutes);
 app.use("/user", userRoutes);
 app.use("/admin", adminRoutes);
