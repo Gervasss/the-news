@@ -12,21 +12,19 @@ export function Mensagem() {
     Conteudo: "",
   });
   
-
+ 
   const handleSubmit = async () => {
     try {
-      const response = await api.post("/mensagens", { conteudo: values.Conteudo });
-      
-      console.log("Mensagem enviada com sucesso:", response.data);
-      setValues({ id: 0, Conteudo: "" }); // Limpa o editor após envio
-      setTimeout(() => {
-        alert("Mensagem enviada com sucesso!"); 
-      }, 1000);
-      
+        const conteudo = values.Conteudo; // Pegando o conteúdo real do editor
+        const userId = 1; // Altere para um usuário válido do seu banco
+
+        const response = await api.post("/mensagens", { conteudo, userId }); // 🔥 Rota correta
+        console.log("Mensagem enviada com sucesso:", response.data);
     } catch (error) {
-      console.error("Erro ao enviar mensagem:", error);
+        console.error("Erro ao enviar mensagem:", error);
     }
-  };
+};
+
 
   return (
     <AdminPageContainer padding="0px">
