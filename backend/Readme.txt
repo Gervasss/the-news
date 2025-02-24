@@ -1,3 +1,8 @@
+
+crie um .env em backend e adicione os seguintes dados "DATABASE_URL="postgresql://gervasio:gervinhas23@localhost:5432/the_news_bd?schema=public"
+JWT_SECRET=super_secret_key"
+
+
 abra o terminal e de npm install
 em seguida após instalar todas as dependências adicione ao terminal "cd backend + enter"
 inicie o backend com o comando "npm run dev"
